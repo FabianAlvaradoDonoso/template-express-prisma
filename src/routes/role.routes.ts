@@ -8,6 +8,12 @@ import { deleteRoleFactory } from '../usecases/Role/DeleteRole/DeleteRoleFactory
 
 const roleRoutes = Router()
 
+/**
+ * @swagger
+ * tags:
+ *   name: Roles
+ *   description: Role management
+ */
 roleRoutes
   .route('/')
   .post((request, response) => {
