@@ -1,0 +1,1 @@
+export { PrismaRoleRepository } from './PrismaRoleRepository'
