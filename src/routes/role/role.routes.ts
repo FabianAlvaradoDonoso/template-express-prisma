@@ -1,10 +1,10 @@
 import { Router } from 'express'
 
-import { createRoleFactory } from '../usecases/Role/CreateRole/CreateRoleFactory'
-import { findAllRolesFactory } from '../usecases/Role/FindAllRoles/FindAllRolesFactory'
-import { findByIdRoleFactory } from '../usecases/Role/FindByIdRole/FindByIdRoleFactory'
-import { updateRoleFactory } from '../usecases/Role/UpdateRole/UpdateRoleFactory'
-import { deleteRoleFactory } from '../usecases/Role/DeleteRole/DeleteRoleFactory'
+import { createRoleFactory } from '../../usecases/Role/CreateRole/CreateRoleFactory'
+import { findAllRolesFactory } from '../../usecases/Role/FindAllRoles/FindAllRolesFactory'
+import { findByIdRoleFactory } from '../../usecases/Role/FindByIdRole/FindByIdRoleFactory'
+import { updateRoleFactory } from '../../usecases/Role/UpdateRole/UpdateRoleFactory'
+import { deleteRoleFactory } from '../../usecases/Role/DeleteRole/DeleteRoleFactory'
 
 const roleRoutes = Router()
 
