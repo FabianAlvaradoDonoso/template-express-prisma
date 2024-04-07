@@ -1,26 +1,37 @@
 # Boilerplate Nodejs + Express + Typescript + Prisma
 
 ## Stacks
-* Nodejs
-* Express
-* Prisma
-* Typescript
-* PostgreSQL
-* SOLID Principles
-* Testing With Jest + Supertest
+
+- Nodejs
+- Express
+- Prisma
+- Typescript
+- PostgreSQL
+- SOLID Principles
+- Testing With Jest + Supertest
 
 ## Clone & Open
+
 ```
-    git clone https://github.com/dedaldinodev4/api-node-prisma-ts-boilerplate.git
-    cd api-node-prisma-ts-boilerplate
-```
-## Install & Run
-```
-  yarn install or npm install or pnpm install
-  yarn server:dev or npm run server:dev or pnpm run server:dev
-```
-## Tests
-```
-  yarn test:dev or npm run test:dev or pnpm run test:dev
+    git clone https://github.com/FabianAlvaradoDonoso/template-express-prisma.git
+    cd template-express-prisma
 ```
 
+## Install & Run
+
+Install using bun (recommended), pnpm, yarn or npm
+
+```
+  bun install       # pnpm/yarn/npm
+  bun server:dev    # pnpm/yarn/npm
+```
+
+## Tests
+
+```
+  bun test:dev      # pnpm/yarn/npm
+```
+
+## Credit
+
+Original template by: [dedaldinodev4](https://github.com/dedaldinodev4/api-node-prisma-ts-boilerplate.git).
