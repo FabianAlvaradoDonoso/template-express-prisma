@@ -38,4 +38,12 @@ describe('Delete Role use case', () => {
       ])
     )
   })
+
+  it('Should not be able delete a Role that does not exist', async () => {
+    const id = '123'
+
+    await expect(deleteRoleUseCase.execute(id)).rejects.toThrow(
+      'Role does not exists.'
+    )
+  })
 })

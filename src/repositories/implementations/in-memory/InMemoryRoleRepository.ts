@@ -34,7 +34,7 @@ export class InMemoryRoleRepository implements IRoleRepository {
   }
 
   async update(id: string, data: IRoleRequest): Promise<Error | IRole> {
-    const user = this.roles
+    this.roles
       .filter((obj) => obj.id === id)
       .map((item) => {
         item.name = data.name

@@ -14,7 +14,7 @@ export class UpdateRoleController {
         name
       })
 
-      return response.status(201).json(data)
+      return response.status(200).json(data)
     } catch (err: any) {
       return response.status(400).json({
         message: err?.message || 'Unexpected error.'

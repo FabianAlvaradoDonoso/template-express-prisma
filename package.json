@@ -15,9 +15,13 @@
   ],
   "scripts": {
     "server:dev": "ts-node-dev --transpile-only --respawn --ignore-watch node_modules src/index.ts",
-    "test:dev": "jest"
+    "test:dev": "jest --collect-coverage"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@prisma/client": "^5.8.1",
     "arrpag": "^2.1.2",
     "bcrypt": "^5.1.1",

@@ -24,4 +24,10 @@ describe('Create Role use case', () => {
       ])
     )
   })
+
+  it('Should not be able to create a new Role with the same name', async () => {
+    await expect(createRoleUseCase.execute(createRoleMock)).rejects.toThrow(
+      'Role already exists.'
+    )
+  })
 })

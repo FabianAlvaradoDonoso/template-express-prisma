@@ -31,4 +31,12 @@ describe('Update Role use case', () => {
       ])
     )
   })
+
+  it('Should not be able to update an role that does not exist', async () => {
+    const id = '123'
+
+    await expect(updateRoleUseCase.execute(id, updateRoleMock)).rejects.toThrow(
+      'Role does not exists.'
+    )
+  })
 })

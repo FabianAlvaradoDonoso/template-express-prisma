@@ -8,7 +8,7 @@ export class UpdateRoleUseCase {
     const roleExists = await this.roleRepository.findById(id)
 
     if (!roleExists) {
-      throw new Error('role does not exists.')
+      throw new Error('Role does not exists.')
     }
     const result = await this.roleRepository.update(id, data)
 

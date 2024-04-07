@@ -21,4 +21,12 @@ describe('Find an Role use case', () => {
 
     await expect(findByIdRoleUseCase.execute(id)).resolves.not.toThrow()
   })
+
+  it('Should not be able to find Id Role that does not exist', async () => {
+    const id = '123'
+
+    await expect(findByIdRoleUseCase.execute(id)).rejects.toThrow(
+      'Role does not exists.'
+    )
+  })
 })

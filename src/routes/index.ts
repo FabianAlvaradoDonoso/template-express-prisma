@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { PREFIX_ROUTE } from '../core/url' // Prefix Global route
 import { roleRoutes } from './role/role.routes'
+import { userRoutes } from './user/user.routes'
 
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
@@ -44,5 +45,6 @@ routes.use(
 )
 
 routes.use(`${PREFIX_ROUTE}/roles`, roleRoutes)
+routes.use(`${PREFIX_ROUTE}/users`, userRoutes)
 
 export { routes }
