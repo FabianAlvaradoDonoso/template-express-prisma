@@ -1,5 +1,5 @@
 // app/prisma/seed.ts
-import { PrismaClient, User, Role } from '@prisma/client'
+import { PrismaClient, User, Role, Product } from '@prisma/client'
 import { faker } from '@faker-js/faker'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -54,14 +54,39 @@ async function createUsers(amountOfUsers: number, roles: string[] = []) {
     }
     users.push(user)
   }
-  console.log(users)
-  // const addUsers = async () => await prisma.user.createMany({ data: users })
-  // addUsers()
+
+  const addUsers = async () => await prisma.user.createMany({ data: users })
+  addUsers()
+}
+
+async function createProducts(amount: number) {
+  await prisma.product.deleteMany({}) // use with caution.
+  const products: Product[] = []
+
+  for (let i = 0; i < amount; i++) {
+    const product: Product = {
+      id: uuidv4(),
+      name: faker.commerce.productName(),
+      price: Math.trunc(+faker.commerce.price()),
+      stock: faker.number.int({ min: 0, max: 100 }),
+      description: faker.commerce.productDescription(),
+      image_url: faker.image.url(),
+      status: faker.datatype.boolean(),
+      created_at: faker.date.recent(),
+      updated_at: faker.date.recent()
+    }
+    products.push(product)
+  }
+
+  const addProducts = async () =>
+    await prisma.product.createMany({ data: products })
+  addProducts()
 }
 
 async function main() {
   const roles = await createRoles()
   await createUsers(10, roles)
+  await createProducts(30)
 }
 
 main()

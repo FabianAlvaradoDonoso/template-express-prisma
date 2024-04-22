@@ -34,3 +34,17 @@ model User {
 
   @@map(name: "user")
 }
+
+model Product {
+  id          String    @id @default(uuid()) @db.Uuid
+  name        String
+  description String
+  price       Int
+  stock       Int
+  image_url   String
+  status      Boolean   @default(true)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime? @updatedAt
+
+  @@map(name: "product")
+}
