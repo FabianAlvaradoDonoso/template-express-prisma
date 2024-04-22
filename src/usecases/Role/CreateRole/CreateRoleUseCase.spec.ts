@@ -19,7 +19,7 @@ describe('Create Role use case', () => {
     expect(inMemoryRoleRepository.roles).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          name: 'admin'
+          name: 'client'
         })
       ])
     )

@@ -22,12 +22,12 @@ describe('Find all Roles use case', () => {
     expect(inMemoryRoleRepository.roles).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          name: 'admin'
+          name: 'client'
         })
       ])
     )
 
     await expect(findAllRolesUseCase.execute(1, 10)).resolves.not.toThrow()
-    expect(inMemoryRoleRepository.roles.length).toEqual(1)
+    expect(inMemoryRoleRepository.roles.length).toEqual(3)
   })
 })

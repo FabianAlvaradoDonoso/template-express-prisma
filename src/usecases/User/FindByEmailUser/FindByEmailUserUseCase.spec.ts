@@ -1,18 +1,28 @@
 import { FindByEmailUserUseCase } from './FindByEmailUserUseCase'
-import { InMemoryUserRepository } from '../../../repositories/implementations/in-memory'
+import {
+  InMemoryRoleRepository,
+  InMemoryUserRepository
+} from '../../../repositories/implementations/in-memory'
 import { CreateUserUseCase } from '../CreateUser/CreateUserUseCase'
 import { IUser } from '../../../dtos/User'
 import { createUserMock } from '../../../mocks'
 
 describe('Find an User use case', () => {
   let inMemoryUserRepository: InMemoryUserRepository
+  let inMemoryRoleRepository: InMemoryRoleRepository
+
   let findByEmailUserUseCase: FindByEmailUserUseCase
   let createUserUseCase: CreateUserUseCase
 
   beforeAll(() => {
     inMemoryUserRepository = new InMemoryUserRepository()
+    inMemoryRoleRepository = new InMemoryRoleRepository()
+
     findByEmailUserUseCase = new FindByEmailUserUseCase(inMemoryUserRepository)
-    createUserUseCase = new CreateUserUseCase(inMemoryUserRepository)
+    createUserUseCase = new CreateUserUseCase(
+      inMemoryUserRepository,
+      inMemoryRoleRepository
+    )
   })
 
   it('Should be able to find email User', async () => {

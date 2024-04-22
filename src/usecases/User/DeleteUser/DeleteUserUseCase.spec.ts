@@ -1,4 +1,7 @@
-import { InMemoryUserRepository } from '../../../repositories/implementations/in-memory'
+import {
+  InMemoryRoleRepository,
+  InMemoryUserRepository
+} from '../../../repositories/implementations/in-memory'
 import { CreateUserUseCase } from '../CreateUser/CreateUserUseCase'
 import { DeleteUserUseCase } from './DeleteUserUseCase'
 import { IUser } from '../../../dtos'
@@ -6,12 +9,19 @@ import { createUserMock } from '../../../mocks'
 
 describe('Delete User use case', () => {
   let inMemoryUserRepository: InMemoryUserRepository
+  let inMemoryRoleRepository: InMemoryRoleRepository
+
   let createUserUseCase: CreateUserUseCase
   let deleteUserUseCase: DeleteUserUseCase
 
   beforeEach(() => {
     inMemoryUserRepository = new InMemoryUserRepository()
-    createUserUseCase = new CreateUserUseCase(inMemoryUserRepository)
+    inMemoryRoleRepository = new InMemoryRoleRepository()
+
+    createUserUseCase = new CreateUserUseCase(
+      inMemoryUserRepository,
+      inMemoryRoleRepository
+    )
     deleteUserUseCase = new DeleteUserUseCase(inMemoryUserRepository)
   })
 

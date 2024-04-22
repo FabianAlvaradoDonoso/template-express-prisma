@@ -1,18 +1,26 @@
 import { FindByIdUserUseCase } from './FindByIdUserUseCase'
-import { InMemoryUserRepository } from '../../../repositories/implementations/in-memory'
+import {
+  InMemoryRoleRepository,
+  InMemoryUserRepository
+} from '../../../repositories/implementations/in-memory'
 import { CreateUserUseCase } from '../CreateUser/CreateUserUseCase'
 import { IUser } from '../../../dtos/User'
 import { createUserMock } from '../../../mocks'
 
 describe('Find an User use case', () => {
   let inMemoryUserRepository: InMemoryUserRepository
+  let inMemoryRoleRepository: InMemoryRoleRepository
   let findByIdUserUseCase: FindByIdUserUseCase
   let createUserUseCase: CreateUserUseCase
 
   beforeAll(() => {
     inMemoryUserRepository = new InMemoryUserRepository()
+    inMemoryRoleRepository = new InMemoryRoleRepository()
     findByIdUserUseCase = new FindByIdUserUseCase(inMemoryUserRepository)
-    createUserUseCase = new CreateUserUseCase(inMemoryUserRepository)
+    createUserUseCase = new CreateUserUseCase(
+      inMemoryUserRepository,
+      inMemoryRoleRepository
+    )
   })
 
   it('Should be able to find id User', async () => {

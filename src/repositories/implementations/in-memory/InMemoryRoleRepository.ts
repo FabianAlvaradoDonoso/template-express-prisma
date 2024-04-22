@@ -6,7 +6,22 @@ import { IResultPaginated } from '../../../dtos/Pagination'
 import { resultPaginated } from '../../../helpers/pagination'
 
 export class InMemoryRoleRepository implements IRoleRepository {
-  roles: IRole[] = []
+  roles: IRole[] = [
+    {
+      id: '0bd843c0-ca9f-4d75-884c-3e2be75f5f70',
+      name: 'admin',
+      description: 'Admin role',
+      created_at: new Date(),
+      updated_at: new Date()
+    },
+    {
+      id: '73eee8f1-8570-4493-bcb2-9eb961faf3da',
+      name: 'user',
+      description: 'User role',
+      created_at: new Date(),
+      updated_at: new Date()
+    }
+  ]
 
   async findAll(page: number, perPage: number): Promise<IResultPaginated> {
     return await resultPaginated(this.roles, page, perPage)

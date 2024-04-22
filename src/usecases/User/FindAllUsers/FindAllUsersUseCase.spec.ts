@@ -1,16 +1,25 @@
 import { FindAllUsersUseCase } from './FindAllUsersUseCase'
-import { InMemoryUserRepository } from '../../../repositories/implementations/in-memory'
+import {
+  InMemoryRoleRepository,
+  InMemoryUserRepository
+} from '../../../repositories/implementations/in-memory'
 import { CreateUserUseCase } from '../CreateUser/CreateUserUseCase'
 import { createUserMock } from '../../../mocks'
 
 describe('Find all Users use case', () => {
   let inMemoryUserRepository: InMemoryUserRepository
+  let inMemoryRoleRepository: InMemoryRoleRepository
   let createUserUseCase: CreateUserUseCase
   let findAllUsersUseCase: FindAllUsersUseCase
 
   beforeAll(() => {
     inMemoryUserRepository = new InMemoryUserRepository()
-    createUserUseCase = new CreateUserUseCase(inMemoryUserRepository)
+    inMemoryRoleRepository = new InMemoryRoleRepository()
+
+    createUserUseCase = new CreateUserUseCase(
+      inMemoryUserRepository,
+      inMemoryRoleRepository
+    )
     findAllUsersUseCase = new FindAllUsersUseCase(inMemoryUserRepository)
   })
 

@@ -1,17 +1,26 @@
 import { UpdateUserUseCase } from './UpdateUserUseCase'
 import { CreateUserUseCase } from '../CreateUser/CreateUserUseCase'
-import { InMemoryUserRepository } from '../../../repositories/implementations/in-memory'
+import {
+  InMemoryRoleRepository,
+  InMemoryUserRepository
+} from '../../../repositories/implementations/in-memory'
 import { IUser } from '../../../dtos/User'
 import { createUserMock, updateUserMock } from '../../../mocks'
 
 describe('Update User use case', () => {
   let inMemoryUserRepository: InMemoryUserRepository
+  let inMemoryRoleRepository: InMemoryRoleRepository
   let createUserUseCase: CreateUserUseCase
   let updateUserUseCase: UpdateUserUseCase
 
   beforeAll(() => {
     inMemoryUserRepository = new InMemoryUserRepository()
-    createUserUseCase = new CreateUserUseCase(inMemoryUserRepository)
+    inMemoryRoleRepository = new InMemoryRoleRepository()
+
+    createUserUseCase = new CreateUserUseCase(
+      inMemoryUserRepository,
+      inMemoryRoleRepository
+    )
     updateUserUseCase = new UpdateUserUseCase(inMemoryUserRepository)
   })
 

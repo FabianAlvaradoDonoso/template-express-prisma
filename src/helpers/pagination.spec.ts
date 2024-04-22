@@ -24,7 +24,6 @@ describe('Pagination function', () => {
     const perPage = 10
 
     const result = await resultPaginated(content, page, perPage)
-    console.log(result)
 
     expect(result.data).toHaveLength(0)
     expect(result.paginator.currentPage).toBe(page)

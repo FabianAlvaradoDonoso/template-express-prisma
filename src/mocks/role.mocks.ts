@@ -1,8 +1,8 @@
 import { IRoleRequest } from '../dtos'
 
 export const createRoleMock: IRoleRequest = {
-  name: 'admin',
-  description: 'admin'
+  name: 'client',
+  description: 'client'
 }
 
 export const updateRoleMock: IRoleRequest = {

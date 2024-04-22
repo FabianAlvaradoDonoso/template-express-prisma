@@ -21,7 +21,7 @@ describe('Delete Role use case', () => {
     expect(inMemoryRoleRepository.roles).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          name: 'admin'
+          name: 'client'
         })
       ])
     )
@@ -33,7 +33,7 @@ describe('Delete Role use case', () => {
     expect(inMemoryRoleRepository.roles).toEqual(
       expect.not.arrayContaining([
         expect.objectContaining({
-          name: 'admin'
+          name: 'client'
         })
       ])
     )
