@@ -55,9 +55,13 @@ export class CreateUserUseCase {
     }
 
     // hash password
-    data.password = await bcrypt.hash(data.password, 10)
+    const hashPassword = await bcrypt.hash(data.password, 10)
 
-    const result = await this.userRepository.create(data)
+    const result = await this.userRepository.create({
+      ...data,
+      password: hashPassword
+    })
+
     return result
   }
 }

@@ -1,9 +1,5 @@
 import { config } from 'dotenv'
 
-config();
+config()
 
-export const { 
-  PORT_APP, 
-  HOST_APP,
-  NODE_ENV
-} = process.env 
+export const { PORT_APP, HOST_APP, NODE_ENV, JWT_SECRET } = process.env

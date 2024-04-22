@@ -22,6 +22,9 @@ export class PrismaUserRepository implements IUserRepository {
 
   async findByEmail(email: string): Promise<IUser | null> {
     const role = await this.repository.findFirst({
+      include: {
+        role: true
+      },
       where: { email }
     })
     return role ?? null

@@ -6,6 +6,7 @@ import { findByEmailUserFactory } from '../../usecases/User/FindByEmailUser/Find
 import { findByIdUserFactory } from '../../usecases/User/FindByIdUser/FindByIdUserFactory'
 import { updateUserFactory } from '../../usecases/User/UpdateUser/UpdateUserFactory'
 import { deleteUserFactory } from '../../usecases/User/DeleteUser/DeleteUserFactory'
+import { loginUserFactory } from '../../usecases/User/LoginUser/LoginUserFactory'
 
 const userRoutes = Router()
 
@@ -32,6 +33,10 @@ userRoutes
 
 userRoutes.route('/email/:email').get((request, response) => {
   return findByEmailUserFactory().handle(request, response)
+})
+
+userRoutes.route('/login').post((request, response) => {
+  return loginUserFactory().handle(request, response)
 })
 
 export { userRoutes }
