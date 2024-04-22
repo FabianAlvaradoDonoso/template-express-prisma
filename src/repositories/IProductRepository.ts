@@ -6,4 +6,5 @@ export interface IProductRepository {
   update(id: string, data: IProductRequest): Promise<IProduct | Error>
   delete(id: string): Promise<void>
   findById(id: string): Promise<IProduct | null>
+  findByName(id: string): Promise<IProduct | null>
 }

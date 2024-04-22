@@ -34,9 +34,9 @@ describe('Create User use case', () => {
   })
 
   it('Should not be able to create a new User with an email that already exists', async () => {
-    await expect(
-      createUserUseCase.execute(createUserMock)
-    ).rejects.toThrowError('User already exists')
+    await expect(createUserUseCase.execute(createUserMock)).rejects.toThrow(
+      'User already exists'
+    )
   })
 
   it('Should not be able to create a new User with an invalid email', async () => {
@@ -49,7 +49,7 @@ describe('Create User use case', () => {
         ...createUserMock,
         email: 'invalid-email'
       })
-    ).rejects.toThrowError('Invalid email')
+    ).rejects.toThrow('Invalid email')
   })
 
   it('Should not be able to create a new User with an invalid name', async () => {
@@ -62,7 +62,7 @@ describe('Create User use case', () => {
         ...createUserMock,
         name: 'a'
       })
-    ).rejects.toThrowError('Invalid name')
+    ).rejects.toThrow('Invalid name')
   })
 
   it('Should not be able to create a new User with an invalid password', async () => {
@@ -75,7 +75,7 @@ describe('Create User use case', () => {
         ...createUserMock,
         password: '123'
       })
-    ).rejects.toThrowError('Password must be at least 6 characters')
+    ).rejects.toThrow('Password must be at least 6 characters')
   })
 
   it('Should not be able to create a new User with an invalid phone', async () => {
@@ -88,7 +88,7 @@ describe('Create User use case', () => {
         ...createUserMock,
         phone: '1234567890'
       })
-    ).rejects.toThrowError('Invalid phone')
+    ).rejects.toThrow('Invalid phone')
   })
 
   it('Should not be able to create a new User with an invalid city', async () => {
@@ -101,7 +101,7 @@ describe('Create User use case', () => {
         ...createUserMock,
         city: 'a'
       })
-    ).rejects.toThrowError('Invalid city')
+    ).rejects.toThrow('Invalid city')
   })
 
   it('Should not be able to create a new User with an invalid address', async () => {
@@ -114,7 +114,7 @@ describe('Create User use case', () => {
         ...createUserMock,
         address: 'a'
       })
-    ).rejects.toThrowError('Invalid address')
+    ).rejects.toThrow('Invalid address')
   })
 
   it('Should not be able to create a new User with an invalid role_id', async () => {
@@ -127,6 +127,6 @@ describe('Create User use case', () => {
         ...createUserMock,
         role_id: '123'
       })
-    ).rejects.toThrowError('Role not found')
+    ).rejects.toThrow('Role not found')
   })
 })

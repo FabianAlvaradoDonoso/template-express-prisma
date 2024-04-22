@@ -44,8 +44,8 @@ describe('Update User use case', () => {
   it('Should not be able to update an user that does not exist', async () => {
     const id = '123'
 
-    await expect(
-      updateUserUseCase.execute(id, updateUserMock)
-    ).rejects.toThrowError('User does not exists')
+    await expect(updateUserUseCase.execute(id, updateUserMock)).rejects.toThrow(
+      'User does not exists'
+    )
   })
 })

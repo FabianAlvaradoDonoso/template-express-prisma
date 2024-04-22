@@ -20,6 +20,13 @@ export class PrismaProductRepository implements IProductRepository {
     return role ?? null
   }
 
+  async findByName(name: string): Promise<IProduct | null> {
+    const role = await this.repository.findFirst({
+      where: { name }
+    })
+    return role ?? null
+  }
+
   async create(data: IProductRequest): Promise<IProduct | Error> {
     const role = await this.repository.create({
       data
